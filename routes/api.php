@@ -16,31 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
-
-//public route for api:
-// show all students data:
-
-// Route::get('/students',[StudentController::class,"index"]);
-
+// public data:
 Route::post('/register',[UserController::class, "register"]);
-//logout route:
-Route::post('/logout',[UserController::class, "logout"]);
-Route::middleware('auth:sanctum')->group(function(){
-    Route::get('/students',[StudentController::class,"index"]);
-    //single show :
+//login route::
+Route::post('/login',[UserController::class,"login"]);
+//show all data:
+Route::get('/students',[StudentController::class,"index"]);
+//single show :
 Route::get('/students/{id}',[StudentController::class, "show"]);
+//search route:
+Route::get('/students/search/{city}',[StudentController::class, "search"]);
+
+//authentication needed or private dat:
+Route::middleware('auth:sanctum')->group(function(){
 //create data:
 Route::post('/students',[StudentController::class, "store"]);
 //update student:
 Route::put('/students/{id}', [StudentController::class, "update"]);
- // delete student:
+// delete student:
  Route::delete('/students/{id}',[StudentController::class,"destroy"]);
- //search route:
- Route::get('/students/search/{city}',[StudentController::class, "search"]);
+//logout route:
+Route::post('/logout',[UserController::class, "logout"]);
 });
  
 
