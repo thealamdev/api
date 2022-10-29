@@ -14,3 +14,4 @@ class Student extends Model
         'fees',
     ];
 }
+ 

@@ -44,3 +44,4 @@ Route::post('/logout',[UserController::class, "logout"]);
 
  //this route's are very important for our api. we can create any api form the api.php file which is in routes folder.
  // here we have web.php file.
+
